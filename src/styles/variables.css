@@ -1,0 +1,107 @@
+/* calcular rem: px/16=medida en rem  */
+:root {
+  /* Colores */
+  --color-primario: #ffffff;
+  --color-secundario: #4ECDC4;
+
+  --color-fondo: #F7FFF7;
+  --color-fondo-secundario: rgba(250, 235, 215, 0.4);
+  --color-fondo-menu: rgba(211, 211, 211, 0.5);
+
+  --color-texto: #333;
+  --color-texto-error: #ff0000;
+
+  --color-borde: rgba(128, 128, 128, 0.2);
+  --color-borde-formularios: #ccc;
+
+  --color-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Sombras */
+  --sombra-suave: 0 0 15px rgba(0, 0, 0, 0.08);
+  --sombra-suave-activa: inset 2px 2px 3px rgba(147, 143, 143, 0.15);
+  --sombra-boton: 2px 2px 3px rgba(68, 66, 66, 0.15);
+
+  /* Tamaños de fuente */
+  /* 12px */
+  --texto-xs: 0.75rem;
+  /* 14px */
+  --texto-sm: 0.875rem;
+  /* 16px */
+  --texto-base: 1rem;
+  /* 18px */
+  --texto-lg: 1.125rem;
+  /* 20px */
+  --texto-xl: 1.25rem;
+
+  /* Espaciados */
+  /* 4px */
+  --espacio-1: 0.25rem;
+
+  /* 8px */
+  --espacio-2: 0.5rem;
+
+  /*10px */
+  --espacio-2-5: 0.625rem;
+
+  /* 12px */
+  --espacio-3: 0.75rem;
+
+  /* 16px */
+  --espacio-4: 1rem;
+
+  /* 18px */
+  --espacio-4-5: 1.125rem;
+
+  /* 19px */
+  --espacio-4-75: 1.1875rem;
+
+  /* 20px */
+  --espaco-4-80: 1.25rem;
+
+  /* 24px */
+  --espacio-5: 1.5rem;
+
+
+  /* otras variables */
+
+  /* 40px */
+  --iconomenu-ancho-1: .5rem;
+
+  /* 60px */
+  --iconomenu-ancho-2: 3.75rem;
+
+  --iconomenu-ancho-3: 4rem;
+
+/* desde abajo */
+
+/*50px */
+--desdeabajo-1:3.125rem;
+
+/* 70px */
+--desdeabajo-1-5:4.375rem;
+
+/*80px */
+--desdeabajo-2:5.31rem;
+
+/* px*/
+--desdeabajo-3:6.25rem;
+
+
+  /* Breakpoints */
+  --movil: 480px;
+  --tablet: 768px;
+  --desktop: 1024px;
+
+}
+
+/* plantill
+
+@media screen and (min-width: 1025px) {
+    .total__container {
+        max-width: 720px;
+    }
+}
+
+
+}
+*/

@@ -1,0 +1,41 @@
+.boton-menu {
+    width: 45px;
+    height: 45px;
+    margin-bottom: var(--espacio-2);
+    background-color: transparent;
+    border: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-content: center;
+    
+}
+
+
+
+.boton-menu__icono--activo {
+    cursor: pointer;
+    filter: drop-shadow(5px 5px 10px rgba(254, 255, 189, 0.815));
+}
+
+
+.boton-menu__icono--inactivo {
+    cursor: none;
+    opacity: 20%;
+    transition: opacity 0.2s;
+}
+
+.boton-menu__icono--activo :active {
+    transform: translate(0.7px, -0.8px) scale(0.97);
+    opacity: 0.8;
+    filter: none;
+    transition: all 0.3s ease;
+
+
+}
+
+
+@media screen and (min-width: 1025px) {
+    .boton-menu {
+        width: var(--iconomenu-ancho-3);
+    }
+}

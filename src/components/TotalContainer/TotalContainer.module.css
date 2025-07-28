@@ -1,0 +1,28 @@
+.total__container {
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100vw;
+    width: 100dvw;
+    height: 100vh;
+    height: 100dvh;
+    margin: 0 auto;
+    background: var(--color-primario);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+
+button:focus-visible,
+[tabindex="0"]:focus-visible {
+    outline: 2px solid var(--color-secundario);
+    outline-offset: 2px;
+}
+
+
+@media screen and (min-width: 1025px) {
+    .total__container {
+        max-width: 720px;
+        
+    }
+}

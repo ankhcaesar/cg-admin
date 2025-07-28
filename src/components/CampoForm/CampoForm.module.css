@@ -1,0 +1,66 @@
+.campoForm__label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.input {
+    width: 100%;
+    padding: 0.4rem;
+    margin-top: 0.2rem;
+    border: 1px solid ;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.campoForm__error {
+    color: var(--color-texto-error);
+    font-size: var(--texto-xs);
+    margin-top: 0.2rem;
+}
+
+.campoForm__checkboxContainer {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.campoForm__checkboxLabel {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.campoForm__checkboxLabel input {
+    margin-right: 0.4rem;
+}
+
+.campoForm__sugerencias {
+    position: absolute;
+    top: 80%;
+    left: 2px;
+    border-radius: 3px;
+    z-index: 100;
+    background: var(--color-primario);
+    box-shadow: 2px 3px 6px 1px rgb(204, 203, 203), inset 2px 3px 8px 1px rgb(226, 228, 226);
+    border: 1px solid var(--color-borde-formularios);
+    width: 99%;
+    max-height: 180px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 2px 0 0;
+}
+
+.campoForm__sugerencias li {
+    padding: 2px;
+    cursor: pointer;
+}
+
+.campoForm__sugerencias li:hover {
+    background: #bebebe;
+}

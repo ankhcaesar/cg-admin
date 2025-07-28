@@ -1,0 +1,20 @@
+/* Bloquear selección de texto */
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Imágenes: bloquear arrastre 
+img {
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+
+ Opcional: evitar que se copien elementos 
+body {
+   -webkit-touch-callout: none;
+    /* Evita menú en iOS 
+}

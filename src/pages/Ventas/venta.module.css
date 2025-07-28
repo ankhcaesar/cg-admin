@@ -1,0 +1,15 @@
+.paginaVentas {
+    width: 100%;
+    min-height: calc(100vh - var(--desdeabajo-2));
+    min-height: calc(100dvh - var(--desdeabajo-2));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.paginaVentas__titulo{
+    font-size: 2rem;
+}

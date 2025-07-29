@@ -30,8 +30,8 @@ function TarjetaVentas({ cliente, cant, totalVenta, fecha, carrito = [] }) {
                     <div className={styles.tarjetaVentas_detalle} key={index}>
 
                         <div className={styles.tarjetaVentas_detalle_izq}>
-                            <p>{item.nombreArts}</p>
-                            <p>{item.cant} </p>
+                            <p className={styles.tarjetaVentas_detalle_izq_cant}>{item.cant}</p>
+                            <p className={styles.tarjetaVentas_detalle_izq_articulo}>{item.nombreArts}</p>
                         </div>
                         <div className={styles.tarjetaVentas_detalle_der}>
                             <p>{formatomoneda(item.valor_venta, true)} </p>

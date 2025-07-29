@@ -25,17 +25,23 @@ function TarjetaVentas({ cliente, cant, totalVenta, fecha, carrito = [] }) {
                 </button>
             </div>
 
-            {mostrarDetalle && (
-                <div className={styles.tarjetaVentas_detalle}>
-                    <ul>
-                        {carrito.map((item, index) => (
-                            <li key={index}>
-                                {item.nombreArts} — {item.cant} x {formatomoneda(item.valor_venta, true)}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
+            {mostrarDetalle &&
+                carrito.map((item, index) => (
+                    <div className={styles.tarjetaVentas_detalle} key={index}>
+
+                        <div className={styles.tarjetaVentas_detalle_izq}>
+                            <p>{item.nombreArts}</p>
+                            <p>{item.cant} </p>
+                        </div>
+                        <div className={styles.tarjetaVentas_detalle_der}>
+                            <p>{formatomoneda(item.valor_venta, true)} </p>
+                        </div>
+
+                    </div>
+
+                ))
+
+            }
         </section>
     );
 }

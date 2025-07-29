@@ -1,4 +1,6 @@
 .tarjetaVentas_principal {
+    width: 90vw;
+    width: 90dvw;
     background-color: #fff;
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -23,7 +25,7 @@
 }
 
 .tarjetaVentas_principal_boton button {
-    background-color: #ff6f61;
+    background-color: #6280c4;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -34,28 +36,28 @@
 }
 
 .tarjetaVentas_principal_boton button:hover {
-    background-color: #e65b4f;
+    background-color: #82b3e1;
 }
 
 .tarjetaVentas_detalle {
+    display: flex;
+    justify-content: space-between;
     background-color: #f9f9f9;
-    border-top: 1px solid #ddd;
-    margin-top: 1rem;
-    padding: 1rem;
+    border-bottom: 1px dashed #ddd;
+
+    padding: 0.5rem;
     animation: fadeIn 0.3s ease-in-out;
 }
 
-.tarjetaVentas_detalle ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.tarjetaVentas_detalle_izq{
+    width: 75%;
+    display: flex;
+    align-content: space-around;
 }
 
-.tarjetaVentas_detalle li {
-    padding: 0.25rem 0;
-    border-bottom: 1px dashed #ccc;
-    font-size: 0.9rem;
-    color: #444;
+.tarjetaVentas_detalle_der{
+    width: 25%;
+
 }
 
 @keyframes fadeIn {

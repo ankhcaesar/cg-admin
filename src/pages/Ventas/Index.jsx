@@ -43,9 +43,6 @@ function Venta() {
         <section className={styles.paginaVentas}>
             <h1 className={styles.paginaVentas__titulo}>Listado de Ventas</h1>
             <div className={styles.paginaVentas__ventasActivas}>
-
-
-
                 {
                     ventas.map((vta) => {
                         const cliente = obtenerCliente(vta.id_cli);

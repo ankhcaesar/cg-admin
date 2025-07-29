@@ -68,7 +68,6 @@ function GlobalContextProvider({ children }) {
     } // Fin funcion formato moneda
 
 
-    //formatonumero
 
     // Funcion formato fecha y hora
     function formatoFecha(dateTime) {

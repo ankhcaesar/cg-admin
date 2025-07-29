@@ -2,6 +2,7 @@ import styles from "./venta.module.css"
 import { useSyncAdmin } from "../../hooks/useSyncservAdm"
 import dbAdm from "../../db/dbAdm"
 import { useEffect, useState } from "react";
+import TarjetaVentas from "../../components/TarjetaVentas/Index";
 
 function Venta() {
 
@@ -42,63 +43,32 @@ function Venta() {
         <section className={styles.paginaVentas}>
             <h1 className={styles.paginaVentas__titulo}>Listado de Ventas</h1>
             <div className={styles.paginaVentas__ventasActivas}>
-                <table className={styles.paginaVentas__ventasActivas_tabla}>
-                    <thead className={styles.paginaVentas__ventasActivas_tabla_head}>
-                        <tr >
-                            <th>Cliente</th>
-                            <th>Fecha</th>
-                            <th>Cantidad</th>
-                            <th>Total</th>
-                            <th>Detalle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {ventas.map((venta) => {
-                            const cliente = obtenerCliente(venta.id_cli);
-                            const items = obtenerCarrito(venta.id_vta);
-                            const totalArticulos = calcularCantidadTotal(items);
 
-                            return (
-                                <tr key={venta.id_vta}>
-                                    <td >{new Date(venta.fecha_hora).toLocaleString()}</td>
-                                    <td >{cliente}</td>
-                                    <td >{totalArticulos}</td>
-                                    <td >${venta.total_venta?.toFixed(2)}</td>
-                                    <td >
-                                        <button
-                                            className="text-blue-600 underline"
-                                            onClick={() =>
-                                                setAbierto(abierto === venta.id_vta ? null : venta.id_vta)
-                                            }
-                                        >
-                                            {abierto === venta.id_vta ? "Ocultar" : "Ver"}
-                                        </button>
-                                    </td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
 
-                </table>
-                {/* Detalles desplegables */}
-                {ventas.map((venta) => {
-                    if (abierto !== venta.id_vta) return null;
 
-                    const items = obtenerCarrito(venta.id_vta);
-                    return (
-                        <div key={`detalle-${venta.id_vta}`}>
-                            <h3 >Detalle de la venta</h3>
-                            <ul >
-                                {items.map((item, i) => (
-                                    <li key={i} >
-                                        <span>{item.cant} x {item.nombreArts}</span>
-                                        <span>${item.valor_x_cant?.toFixed(2)}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    );
-                })}
+                {
+                    ventas.map((vta) => {
+                        const cliente = obtenerCliente(vta.id_cli);
+                        const items = obtenerCarrito(vta.id_vta) || [];
+                        const totalArticulos = calcularCantidadTotal(items);
+                        
+
+                        return (
+                            <TarjetaVentas
+                                key={vta.id_vta}
+                                cliente={cliente}
+                                cant={totalArticulos}
+                                totalVenta={vta.total_venta}
+                                fecha={vta.fecha_hora}
+                                carrito={items}
+                            />)
+                    })
+                }
+
+
+
+
+
             </div>
         </section>
     )

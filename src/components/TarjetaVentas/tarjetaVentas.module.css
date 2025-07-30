@@ -25,10 +25,7 @@
 }
 
 .tarjetaVentas_principal_boton button {
-    background-color: #6280c4;
-    color: white;
     border: none;
-    padding: 0.5rem 1rem;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
@@ -43,7 +40,6 @@
     width: 90%;
     display: flex;
     justify-content: center;
-    background-color: #f9f9f9;
     border-bottom: 1px dashed #ddd;
 
     padding: 0.5rem;

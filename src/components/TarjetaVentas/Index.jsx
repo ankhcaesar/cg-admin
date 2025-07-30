@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import styles from "./tarjetaVentas.module.css";
 import { GlobalContext } from "../../context/GlobalContext";
+import { Undo, ShoppingBasket } from "@mui/icons-material";{}
+
 
 function TarjetaVentas({ cliente, cant, totalVenta, fecha, carrito = [] }) {
     const [mostrarDetalle, setMostrarDetalle] = useState(false);
@@ -21,7 +23,7 @@ function TarjetaVentas({ cliente, cant, totalVenta, fecha, carrito = [] }) {
 
             <div className={styles.tarjetaVentas_principal_boton}>
                 <button onClick={toggleDetalle}>
-                    {mostrarDetalle ? "Ocultar Detalle" : "Ver Detalle"}
+                    {mostrarDetalle ? <ShoppingBasket fontSize="small" color="secondary"/> : <ShoppingBasket fontSize="small" color="primary"/>}
                 </button>
             </div>
 

@@ -50,8 +50,6 @@ function LoginPage() {
         setLoading(false);
         setFormData({ email: "", password: "" });
         ir("inicio");
-
-        console.log("Session seteada:", sessionData.session); // <- Debería mostrar los datos del usuario
     };
 
     return (

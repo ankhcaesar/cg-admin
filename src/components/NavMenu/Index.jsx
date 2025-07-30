@@ -19,7 +19,6 @@ function NavMenu({ menus, onItemSelected, filtros }) {
             setOpenIndex(null);
         } else {
             // Ítem de acción: notificamos
-            console.log(">>> Item seleccionado:", item);
             if (onItemSelected) onItemSelected(item);
 
             // Retrocompatibilidad

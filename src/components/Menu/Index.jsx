@@ -2,7 +2,7 @@ import styles from "./Menu.module.css"
 import BotonMenu from "../BotonMenu/Index"
 import { useContext, useEffect } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
-import {Home, Search, ShoppingCart} from "@mui/icons-material"
+import { Storefront, ProductionQuantityLimits, People, DeliveryDining } from "@mui/icons-material"
 
 function Menu() {
 
@@ -10,16 +10,24 @@ function Menu() {
         <section className={styles.menu}>
             <BotonMenu
                 destino="inicio"
-                icono={Home}
+                icono={Storefront}
             />
             <BotonMenu
-                destino="menu"
-                icono={Search}
+                destino="ventas"
+                icono={ProductionQuantityLimits}
             />
+
             <div className={styles.menu__carrito}>
                 <BotonMenu
-                    destino="carrito"
-                    icono={ShoppingCart}
+                    destino="clientes"
+                    icono={People}
+                />
+            </div>
+
+            <div className={styles.menu__carrito}>
+                <BotonMenu
+                    destino="entregas"
+                    icono={DeliveryDining}
                 />
             </div>
         </section>

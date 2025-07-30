@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./NavMenu.module.css";
 import { ArrowBackIosNew } from "@mui/icons-material";
 
-function NavMenu({ menus, onItemSelected }) {
+function NavMenu({ menus, onItemSelected, filtros }) {
     const [stack, setStack] = useState([menus]);
     const [openIndex, setOpenIndex] = useState(null);
 
@@ -38,7 +38,7 @@ function NavMenu({ menus, onItemSelected }) {
     return (
         <section className={styles.contenedor}>
             {stack.length > 1 && (
-                <button className={styles.contenedor_nav_btn} onClick={goBack}>
+               <button className={styles.contenedor_nav_btn} onClick={goBack}>
                     <ArrowBackIosNew fontSize="ligth" />
                 </button>
             )}
@@ -54,15 +54,18 @@ function NavMenu({ menus, onItemSelected }) {
 
                     {openIndex === index && menu.submenu && (
                         <nav className={styles.contenedor_subnav}>
-                            {menu.submenu.map((item, i) => (
-                                <button
-                                    key={i}
-                                    className={styles.contenedor_nav_btn}
-                                    onClick={() => handleItemClick(item)}
-                                >
-                                    {item.label}
-                                </button>
-                            ))}
+                            {menu.submenu.map((item, i) => {
+                                const isActivo = item.action === "filtrar-estado" && filtros?.estados?.includes(item.value);
+                                return (
+                                    <button
+                                        key={i}
+                                        className={`${styles.contenedor_nav_btn} ${isActivo ? styles.activo : ""}`}
+                                        onClick={() => handleItemClick(item)}
+                                    >
+                                        {item.label}
+                                    </button>
+                                )
+                            })}
                         </nav>
                     )}
                 </nav>

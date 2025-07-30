@@ -88,6 +88,7 @@ function Venta() {
                 <NavMenu
                     menus={menuConfig}
                     onItemSelected={handleMenuSelection}
+                    filtros={filtros}
                 />
             </div>
 

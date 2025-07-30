@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import TarjetaVentas from "../../components/TarjetaVentas/Index";
 import NavMenu from "../../components/NavMenu/Index";
 import useFiltrosVentas, { estadosDisponibles } from "../../hooks/useFiltrosVentas";
-import { Undo } from "@mui/icons-material";{}
+import { Undo, Delete } from "@mui/icons-material";
+import { supabase } from "../../db/supabaseclient";
 
 function Venta() {
     const [ventas, setVentas] = useState([]);
@@ -48,9 +49,34 @@ function Venta() {
     const calcularCantidadTotal = (items) =>
         items.reduce((sum, item) => sum + (item.cant || 0), 0);
 
+    // Función para borrar una venta
+    const handleBorrarVenta = async (id_vta) => {
+        if (window.confirm("¿Estás seguro de que deseas eliminar esta venta?")) {
+            try {
+                // Borrar primero los items del carrito asociados
+                await dbAdm.carrito.where("id_vta").equals(id_vta).delete();
+                
+                // Luego borrar la venta
+                await dbAdm.ventas.delete(id_vta);
+                
+                // Actualizar el estado local
+                setVentas(prev => prev.filter(vta => vta.id_vta !== id_vta));
+                setCarritos(prev => prev.filter(item => item.id_vta !== id_vta));
+                
+                // Opcional: sincronizar con supabase
+                await supabase.from("carrito").delete().eq("id_vta", id_vta);
+                await supabase.from("ventas").delete().eq("id_vta", id_vta);
+                
+                alert("Venta eliminada correctamente");
+            } catch (error) {
+                console.error("Error al eliminar la venta:", error);
+                alert("Error al eliminar la venta");
+            }
+        }
+    };
+
     // Manejador de selección en el menú
     const handleMenuSelection = (item) => {
-
         if (item.action === "limpiar") {
             limpiarFiltros();
         } else if (item.action === "filtrar-estado") {
@@ -100,14 +126,22 @@ function Venta() {
                     const totalArticulos = calcularCantidadTotal(items);
 
                     return (
-                        <TarjetaVentas
-                            key={vta.id_vta}
-                            cliente={cliente}
-                            cant={totalArticulos}
-                            totalVenta={vta.total_venta}
-                            fecha={vta.fecha_hora}
-                            carrito={items}
-                        />
+                        <div key={vta.id_vta} className={styles.tarjetaContainer}>
+                            <TarjetaVentas
+                                cliente={cliente}
+                                cant={totalArticulos}
+                                totalVenta={vta.total_venta}
+                                fecha={vta.fecha_hora}
+                                carrito={items}
+                            />
+                            <button 
+                                className={styles.botonBorrar}
+                                onClick={() => handleBorrarVenta(vta.id_vta)}
+                                title="Eliminar venta"
+                            >
+                                <Delete fontSize="small" />
+                            </button>
+                        </div>
                     );
                 })}
             </div>

@@ -26,10 +26,11 @@ function AppRoute() {
                         {/** Rutas públicas */}
                         <Route index element={<LoginPage />} />
                         <Route path="*" element={<E404 />} />
-                        <Route path="/Ventas" element={<Ventas />} />
 
                         {/** Rutas protrgidas */}
                         <Route element={<ProtectedRoute />}>
+                        <Route path="/Ventas" element={<Ventas />} />
+                        
 
                         </Route>
                     </Route>

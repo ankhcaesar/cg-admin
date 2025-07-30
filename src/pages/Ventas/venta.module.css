@@ -7,16 +7,26 @@
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
+.paginaVentas_submenu {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+    flex-shrink: 0;
+}
 
-.paginaVentas__titulo{
+.paginaVentas__titulo {
     font-size: 2rem;
+    flex-shrink: 0;
 }
 
-.paginaVentas__ventasActivas{
+
+.paginaVentas__ventasActivas {
+    height: 100%;
     box-sizing: border-box;
-    overflow: scroll;
-    
+    overflow-y: scroll;
 
 }

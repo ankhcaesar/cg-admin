@@ -32,7 +32,8 @@ function GlobalContextProvider({ children }) {
         const rutas = {
             inicio: "/",
             ventas: "/Ventas",
-
+            clientes:"/Clientes",
+            entregas: "/Entregas"
         };
 
         if (rutas[to]) {

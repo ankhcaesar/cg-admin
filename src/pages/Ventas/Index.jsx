@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import TarjetaVentas from "../../components/TarjetaVentas/Index";
 import NavMenu from "../../components/NavMenu/Index";
 import useFiltrosVentas, { estadosDisponibles } from "../../hooks/useFiltrosVentas";
-import { Undo, Delete } from "@mui/icons-material";
+import { Undo } from "@mui/icons-material";
 import { supabase } from "../../db/supabaseclient";
 
 function Venta() {
@@ -133,14 +133,9 @@ function Venta() {
                                 totalVenta={vta.total_venta}
                                 fecha={vta.fecha_hora}
                                 carrito={items}
+                                onBorrar={() => handleBorrarVenta(vta.id_vta)}
+                                
                             />
-                            <button 
-                                className={styles.botonBorrar}
-                                onClick={() => handleBorrarVenta(vta.id_vta)}
-                                title="Eliminar venta"
-                            >
-                                <Delete fontSize="small" />
-                            </button>
                         </div>
                     );
                 })}

@@ -4,37 +4,85 @@
     background-color: #fff;
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
+    padding: 0.8rem 0.3rem;
     margin-bottom: 1rem;
     transition: all 0.3s ease;
     overflow: hidden;
-    
+
 }
 
+
 .tarjetaVentas_principal_datos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     gap: 0.5rem;
     margin-bottom: 1rem;
     font-size: 0.95rem;
     color: #333;
+    padding: 0.2rem;
 }
 
-.tarjetaVentas_principal_boton {
+.tarjetaVentas_principal_up{
+    display: flex;
+}
+
+.tarjetaVentas_principal_datos_up {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.tarjetaVentas_principal_datos_down {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.tarjetaVentas_principal_datos_down_total {
+    display: flex;
+    font-weight: bolder;
+}
+
+
+
+
+.tarjetaVentas_principal_botones {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.2rem;
     text-align: right;
 }
 
-.tarjetaVentas_principal_boton button {
+.tarjetaVentas_principal_botones_mas {
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    background-color: transparent;
     transition: background-color 0.2s ease;
 }
 
-.tarjetaVentas_principal_boton button:hover {
+.tarjetaVentas_principal_botones_mas:hover {
     background-color: #82b3e1;
 }
+
+.tarjetaVentas_principal_botones_borrar {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+.tarjetaVentas_principal_botones_borrar:hover {
+    background-color: #82b3e1;
+}
+
+
 
 .tarjetaVentas_detalle {
     width: 90%;
@@ -46,7 +94,7 @@
     animation: fadeIn 0.3s ease-in-out;
 }
 
-.tarjetaVentas_detalle_izq{
+.tarjetaVentas_detalle_izq {
     width: 70%;
     display: flex;
     align-content: space-around;
@@ -54,7 +102,7 @@
 }
 
 
-.tarjetaVentas_detalle_der{
+.tarjetaVentas_detalle_der {
     width: 20%;
     display: flex;
     justify-content: flex-end;

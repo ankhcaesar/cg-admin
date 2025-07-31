@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import styles from "./tarjetaVentas.module.css";
 import { GlobalContext } from "../../context/GlobalContext";
-import { Undo, ShoppingBasket } from "@mui/icons-material";{}
+import { Undo, ShoppingBasket, Delete } from "@mui/icons-material"; { }
 
 
-function TarjetaVentas({ cliente, cant, totalVenta, fecha, carrito = [] }) {
+function TarjetaVentas({ cliente, cant, totalVenta, fecha, carrito = [], onBorrar }) {
     const [mostrarDetalle, setMostrarDetalle] = useState(false);
     const { formatomoneda, formatoFecha } = useContext(GlobalContext);
 
@@ -14,17 +14,38 @@ function TarjetaVentas({ cliente, cant, totalVenta, fecha, carrito = [] }) {
 
     return (
         <section className={styles.tarjetaVentas_principal}>
-            <div className={styles.tarjetaVentas_principal_datos}>
-                <p><strong>Fecha:</strong> {formatoFecha(fecha)}</p>
-                <p><strong>Cliente:</strong> {cliente}</p>
-                <p><strong>Cantidad:</strong> {cant}</p>
-                <p><strong>Total:</strong> {formatomoneda(totalVenta, true)}</p>
-            </div>
+            <div className={styles.tarjetaVentas_principal_up}>
 
-            <div className={styles.tarjetaVentas_principal_boton}>
-                <button onClick={toggleDetalle}>
-                    {mostrarDetalle ? <ShoppingBasket fontSize="small" color="secondary"/> : <ShoppingBasket fontSize="small" color="primary"/>}
-                </button>
+
+                <div className={styles.tarjetaVentas_principal_datos}>
+
+                    <div className={styles.tarjetaVentas_principal_datos_up}>
+                        <p> {cliente}</p>
+                        <p> {formatoFecha(fecha)}</p>
+                    </div>
+
+                    <div className={styles.tarjetaVentas_principal_datos_down}>
+                        <p>{cant} {cant > 1 ? 'articulos' : 'articulo'} </p>
+                        <p className={styles.tarjetaVentas_principal_datos_down_total}>{formatomoneda(totalVenta, true)}</p>
+                    </div>
+                </div>
+
+                <div className={styles.tarjetaVentas_principal_botones}>
+
+                    <button className={styles.tarjetaVentas_principal_botones_borrar}
+                        onClick={onBorrar}
+                        title="Eliminar venta"
+                    >
+                        <Delete fontSize="small" color="error" />
+                    </button>
+                    <button className={styles.tarjetaVentas_principal_botones_mas}
+                        onClick={toggleDetalle}>
+                        {mostrarDetalle ? <ShoppingBasket fontSize="small" color="secondary" /> : <ShoppingBasket fontSize="small" color="primary" />}
+                    </button>
+
+
+
+                </div>
             </div>
 
             {mostrarDetalle &&

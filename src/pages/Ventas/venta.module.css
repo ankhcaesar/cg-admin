@@ -22,7 +22,6 @@
 .paginaVentas__titulo {
     font-size: 2rem;
     flex-shrink: 0;
-    background-color: aliceblue;
 }
 
 
@@ -30,7 +29,6 @@
     height: 100%;
     box-sizing: border-box;
     overflow-y: scroll;
-    background-color: azure;
     padding: 0.3rem;
 
 }

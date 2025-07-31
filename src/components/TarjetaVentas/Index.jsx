@@ -31,7 +31,6 @@ function TarjetaVentas({ cliente, cant, totalVenta, fecha, carrito = [], onBorra
                 </div>
 
                 <div className={styles.tarjetaVentas_principal_botones}>
-
                     <button className={styles.tarjetaVentas_principal_botones_borrar}
                         onClick={onBorrar}
                         title="Eliminar venta"
@@ -42,10 +41,8 @@ function TarjetaVentas({ cliente, cant, totalVenta, fecha, carrito = [], onBorra
                         onClick={toggleDetalle}>
                         {mostrarDetalle ? <ShoppingBasket fontSize="small" color="secondary" /> : <ShoppingBasket fontSize="small" color="primary" />}
                     </button>
-
-
-
                 </div>
+                
             </div>
 
             {mostrarDetalle &&
